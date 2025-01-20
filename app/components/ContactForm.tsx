@@ -6,12 +6,11 @@ type Inputs = {
     mensagem: string;
 }
 
-const OutlineButton = ({ children, ...rest } : {children:any}) => {
+const OutlineButton = () => {
     return (
         <button
-        {...rest}
         className="group relative p-5 bg-[#525252] font-semibold border-2 border-[#576596] text-[#a3b2e4] transition-colors duration-[400ms] font-jet hover:text-white">
-            <span>{children}</span>
+            <span>Enviar mensagem</span>
             {/* TOP */}
             <span className="absolute left-0 top-0 h-[2px] w-0 bg-[#FBC688] transition-all duration-100 group-hover:w-full" />
             {/* RIGHT */}
@@ -28,7 +27,6 @@ export default function ContactForm() {
     const {
         register,
         handleSubmit,
-        watch,
         formState: {errors},
     } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
@@ -41,7 +39,7 @@ export default function ContactForm() {
             {errors.nome && <span className="text-red-300 mb-3">Insira seu e-mail.</span>}
             <textarea className="p-3 px-4 resize-none h-40 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="Sua mensagem" {...register("mensagem", {required: true})}/>
             {errors.nome && <span className="text-red-300 mb-5">Por favor, escreva sua mensagem.</span>}
-            <OutlineButton>Enviar mensagem</OutlineButton>
+            <OutlineButton/>
         </form>
     )
 }
