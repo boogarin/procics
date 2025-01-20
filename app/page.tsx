@@ -67,7 +67,7 @@ export default function Home() {
 
     {/* SECTION ONE */}
     <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: { duration: 1}}} viewport={{once: true}}
-    className="flex p-10 -mb-2 md:-mb-0 lg:p-14 h-60 md:h-72 justify-center lg:justify-normal w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto">
+    className="flex p-10 -mb-5 md:-mb-0 lg:p-14 h-60 md:h-72 justify-center lg:justify-normal w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto">
       <div className="flex flex-col absolute z-10">
         <div className="flex space-x-5 justify-center lg:justify-normal">
           <span className="font-jet font-extralight text-3xl sm:text-5xl md:text-6xl">CONSTRUA</span>

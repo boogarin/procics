@@ -28,8 +28,8 @@ export const GenerateText = ({
       },
       {
         duration: duration ? duration : 0.5,
-        delay: stagger(0.2),
-      }
+        delay: stagger(0.2, {startDelay: 1}),
+      },
     );
     }
   }, [isInView]);
