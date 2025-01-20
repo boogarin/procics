@@ -1,0 +1,30 @@
+/* [project]/app/components/bubble.module.css [app-client] (css) */
+.bubble-module__VEossW__hoverText {
+  transition: font-weight .35s, color .35s;
+}
+
+.bubble-module__VEossW__hoverText:hover {
+  font-weight: 900;
+  color: #eef2ff;
+}
+
+.bubble-module__VEossW__hoverText:hover + .bubble-module__VEossW__hoverText {
+  font-weight: 500;
+  color: #c7d2fe;
+}
+
+.bubble-module__VEossW__hoverText:hover + .bubble-module__VEossW__hoverText + .bubble-module__VEossW__hoverText {
+  font-weight: 300;
+}
+
+.bubble-module__VEossW__hoverText:has( + .bubble-module__VEossW__hoverText:hover) {
+  font-weight: 500;
+  color: #c7d2fe;
+}
+
+.bubble-module__VEossW__hoverText:has( + .bubble-module__VEossW__hoverText + .bubble-module__VEossW__hoverText:hover) {
+  font-weight: 300;
+}
+
+
+/*# sourceMappingURL=app_components_bubble_module_1ce0b3.css.map*/
