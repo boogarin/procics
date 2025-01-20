@@ -147,14 +147,17 @@ export default function Home() {
           <GenerateText words={words}/>
           <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3}}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
           <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3.5}}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
-          <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}} className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
-            <SiMailboxdotorg size={18}/>
-            <span className="font-semibold">procics@procics.com</span>
+          <motion.div className="flex flex-col" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}}>
+            <div className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
+              <SiMailboxdotorg size={18}/>
+              <span className="font-semibold">procics@procics.com</span>
+            </div>
+            <div className="flex space-x-3 items-center justify-center md:justify-normal">
+              <SiWhatsapp size={20}/>
+              <span className="font-semibold">(11) 94089-7932</span>
+            </div>
           </motion.div>
-          <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}} className="flex space-x-3 items-center justify-center md:justify-normal">
-            <SiWhatsapp size={20}/>
-            <span className="font-semibold">(11) 94089-7932</span>
-          </motion.div>
+
         </div>
         <ContactForm/>
       </motion.div>
