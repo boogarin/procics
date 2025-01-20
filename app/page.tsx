@@ -143,11 +143,11 @@ export default function Home() {
     <motion.div ref= {myRef} id="contact" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 1}}} viewport={{once: true}}
     className="py-3 bg-[#373737]">
       <motion.div className="flex flex-col md:flex-row start justify-between items-center md:items-start w-[calc(100%-5px)] lg:w-[calc(100%-40px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
-        <div className="text-center mb-10 md:mb-0 md:text-left md:w-1/3 flex flex-col">
+        <div className="text-center mb-10 -mt-5 md:mb-0 md:text-left md:w-1/3 flex flex-col">
           <GenerateText words={words}/>
-          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3}}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
-          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3.5}}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
-          <motion.div className="flex flex-col" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}}>
+          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3}}} viewport={{once: true}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
+          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3.5}}} viewport={{once: true}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
+          <motion.div className="flex flex-col" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}} viewport={{once: true}}>
             <div className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
               <SiMailboxdotorg size={18}/>
               <span className="font-semibold">procics@procics.com</span>

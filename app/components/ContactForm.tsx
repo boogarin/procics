@@ -33,7 +33,7 @@ export default function ContactForm() {
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
     return (
-        <motion.div className="w-full md:w-1/2" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4.5}}}>
+        <motion.div className="w-full md:w-1/2" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3.5, delay: 5}}} viewport={{once: true}}>
         <form className="flex flex-col space-y-4" onSubmit={handleSubmit(onSubmit)}>
             <input className="p-3 px-4 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="Nome" {...register("nome", {required: true})}/>
             {errors.nome && <span className="text-red-300 mb-3">Insira seu nome.</span>}
