@@ -87,9 +87,9 @@ export default function Home() {
           <span className="font-jet font-semibold text-transparent bg-gradient-to-r from-yellow-200 via-pink-200 to-purple-200 bg-clip-text mt-2 text-xs sm:text-sm lg:ml-32">finalizamos seu projeto em até 2 meses*</span>
         </div>
       </div>
-      <div className="absolute lg:top-0 z-0">
+      <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 5, delay: 1}}} viewport={{once: true}} className="absolute lg:top-0 z-0">
       <Image draggable="false" src={"/globe.png"} alt='Logo' width={1000} height={10}/>
-      </div>
+      </motion.div>
     </motion.div>
 
     {/* SECTION TWO */}
