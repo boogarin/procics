@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 type Inputs = {
@@ -32,7 +33,8 @@ export default function ContactForm() {
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
     return (
-        <form className="flex flex-col w-full md:w-1/2 space-y-4" onSubmit={handleSubmit(onSubmit)}>
+        <motion.div className="w-full md:w-1/2" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4.5}}}>
+        <form className="flex flex-col space-y-4" onSubmit={handleSubmit(onSubmit)}>
             <input className="p-3 px-4 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="Nome" {...register("nome", {required: true})}/>
             {errors.nome && <span className="text-red-300 mb-3">Insira seu nome.</span>}
             <input className="p-3 px-4 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="E-mail" {...register("email", {required: true})}/>
@@ -41,5 +43,6 @@ export default function ContactForm() {
             {errors.nome && <span className="text-red-300 mb-5">Por favor, escreva sua mensagem.</span>}
             <OutlineButton/>
         </form>
+        </motion.div>
     )
 }

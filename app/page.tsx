@@ -145,16 +145,16 @@ export default function Home() {
       <motion.div className="flex flex-col md:flex-row start justify-between items-center md:items-start w-[calc(100%-5px)] lg:w-[calc(100%-40px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
         <div className="text-center mb-10 md:mb-0 md:text-left md:w-1/3 flex flex-col">
           <GenerateText words={words}/>
-          <span className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</span>
-          <span className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</span>
-          <div className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
+          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3}}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
+          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3.5}}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
+          <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}} className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
             <SiMailboxdotorg size={18}/>
             <span className="font-semibold">procics@procics.com</span>
-          </div>
-          <div className="flex space-x-3 items-center justify-center md:justify-normal">
+          </motion.div>
+          <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}} className="flex space-x-3 items-center justify-center md:justify-normal">
             <SiWhatsapp size={20}/>
             <span className="font-semibold">(11) 94089-7932</span>
-          </div>
+          </motion.div>
         </div>
         <ContactForm/>
       </motion.div>
@@ -170,7 +170,7 @@ export default function Home() {
         </div>
         <div className="mt-10 md:mt-0 flex flex-col font-jet text-right">
           <span className="font-bold mb-2 text-lg">Links úteis</span>
-          <ul className="hover:underline cursor-pointer">
+          <ul className="hover:underline cursor-pointer mb-6">
             <li>Novas tecnologias</li>
           </ul>
         </div>
