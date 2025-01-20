@@ -1,5 +1,5 @@
 import { motion, useSpring, useTransform } from "motion/react";
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler } from "react";
 import Image from "next/image";
 
 const cardScale = 1.02;
@@ -45,12 +45,11 @@ const Card = () => {
         mouseY.set(currentMouseY)
     }
 
-    const handleMouseEnter: MouseEventHandler = (e) => {
+    const handleMouseEnter: MouseEventHandler = () => {
         scale.set(cardScale)
-
     }
 
-    const handleMouseLeave: MouseEventHandler = (e) => {
+    const handleMouseLeave: MouseEventHandler = () => {
         scale.set(1);
         xPcnt.set(0);
         yPcnt.set(0);

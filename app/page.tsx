@@ -7,7 +7,6 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import Card from "./components/Card";
 import Card2 from "./components/Card2";
-import StarSVG from '/gggyrate.svg';
 import { Spotlight } from "./components/Spotlight";
 import { GenerateText } from "./components/GenerateText";
 import ContactForm from "./components/ContactForm";
@@ -40,7 +39,7 @@ export default function Home() {
 
   useEffect(() => {
     const lenis = new Lenis();
-    function raf(time: any) {
+    function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf)
     }

@@ -6,7 +6,7 @@ type Inputs = {
     mensagem: string;
 }
 
-const OutlineButton = ({ children, ...rest } : any) => {
+const OutlineButton = ({ children, ...rest } : {children:any}) => {
     return (
         <button
         {...rest}
@@ -41,7 +41,7 @@ export default function ContactForm() {
             {errors.nome && <span className="text-red-300 mb-3">Insira seu e-mail.</span>}
             <textarea className="p-3 px-4 resize-none h-40 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="Sua mensagem" {...register("mensagem", {required: true})}/>
             {errors.nome && <span className="text-red-300 mb-5">Por favor, escreva sua mensagem.</span>}
-            <OutlineButton type="submit">Enviar mensagem</OutlineButton>
+            <OutlineButton>Enviar mensagem</OutlineButton>
         </form>
     )
 }
