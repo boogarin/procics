@@ -1,12 +1,11 @@
 import { motion } from "motion/react";
-import Image from "next/image"
 import { useEffect, useState } from "react";
 
 const Slider = () => {
     const [isActive, setIsActive] = useState("p1");
-    const photos = ["p1", "p2", "p3"];
 
     useEffect(() => {
+        const photos = ["p1", "p2", "p3"];
         let index = 0;
         const alternate = () => {
             index = (index + 1) % photos.length;

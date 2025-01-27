@@ -48,7 +48,7 @@ const SectionMenu = () => {
                 ease: "easeInOut",
             }}
             className="-mt-16 mb-5 text-[#4d4d4d]">
-                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industry's standard dummy  text ever since...
+                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industrys standard dummy  text ever since...
             </motion.div> : <></>
             }
 
@@ -93,7 +93,7 @@ const SectionMenu = () => {
                 ease: "easeInOut",
             }}
             className="-mt-16 mb-5 text-[#4d4d4d]">
-                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industry's standard dummy  text ever since...
+                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industrys standard dummy  text ever since...
             </motion.div> : <></>
             }
 
@@ -139,7 +139,7 @@ const SectionMenu = () => {
                 ease: "easeInOut",
             }}
             className="-mt-16 mb-5 text-[#4d4d4d]">
-                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industry's standard dummy  text ever since...
+                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industrys standard dummy  text ever since...
             </motion.div> : <></>
             }
 
