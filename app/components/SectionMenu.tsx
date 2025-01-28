@@ -11,6 +11,8 @@ const SectionMenu = () => {
 
             <div className="flex justify-between">
                 <motion.div
+                onViewportEnter={() => {setIsExpanded("b1")}}
+                onViewportLeave={() => {setIsExpanded("b0")}}
                 animate={{
                     height: isExpanded === "b1" ? "100px" : "",
                     fontSize: isExpanded === "b1" ? "20px" : "16px",
@@ -19,10 +21,10 @@ const SectionMenu = () => {
                     duration: 0.4,
                     ease: "linear",
                 }}
-                onClick={() => {setIsExpanded("b1"); if (isExpanded === "b3") {setIsExpanded("b0")}}}
-                className={`${isExpanded == "b1" ? 'font-bold text-xl text-[#303030] cursor-pointer' : 'font-medium text-[#303030] flex flex-col cursor-pointer'}`}>Prototipação</motion.div>
+                onClick={() => {setIsExpanded("b1"); if (isExpanded === "b1") {setIsExpanded("b0")}}}
+                className={`${isExpanded == "b1" ? 'font-bold text-xl text-[#303030] cursor-pointer' : 'font-semibold text-[#303030] flex flex-col cursor-pointer'}`}>Prototipação</motion.div>
                 <motion.div
-                className="flex items-end justify-center"
+                className="flex items-end justify-center h-full"
                 animate={{
                     rotate: isExpanded === "b1" ? -180 : 0,
                 }}
@@ -33,7 +35,7 @@ const SectionMenu = () => {
                     originY: "12px",
                 }}
                 transition={{ duration: 0.8 }}>
-                    <ChevronDown onClick={() => {setIsExpanded("b1"); if (isExpanded === "b3") {setIsExpanded("b0")}}} className="cursor-pointer" color="#000000"/>
+                    <ChevronDown onClick={() => {setIsExpanded("b1"); if (isExpanded === "b1") {setIsExpanded("b0")}}} className="cursor-pointer" color="#000000"/>
                 </motion.div>
             </div>
             {isExpanded == "b1" ? 
@@ -64,10 +66,10 @@ const SectionMenu = () => {
                     duration: 0.4,
                     ease: "linear",
                 }}
-                onClick={() => {setIsExpanded("b2"); if (isExpanded === "b3") {setIsExpanded("b0")}}}
-                className={`${isExpanded == "b2" ? 'font-bold text-xl text-[#303030] cursor-pointer' : 'font-medium flex flex-col text-[#303030] cursor-pointer'}`}>Processo criativo</motion.div>
+                onClick={() => {setIsExpanded("b2"); if (isExpanded === "b2") {setIsExpanded("b0")}}}
+                className={`${isExpanded == "b2" ? 'font-bold text-xl text-[#303030] cursor-pointer' : 'font-semibold flex flex-col text-[#303030] cursor-pointer'}`}>Processo criativo</motion.div>
                 <motion.div
-                className="flex items-end justify-center"
+                className="flex items-end justify-center h-full"
                 animate={{
                     rotate: isExpanded === "b2" ? 180 : 0,
                 }}
@@ -78,7 +80,7 @@ const SectionMenu = () => {
                     originY: "12px",
                 }}
                 transition={{ duration: 0.8 }}>
-                    <ChevronDown onClick={() => {setIsExpanded("b2"); if (isExpanded === "b3") {setIsExpanded("b0")}}} className="cursor-pointer" color="#000000"/>
+                    <ChevronDown onClick={() => {setIsExpanded("b2"); if (isExpanded === "b2") {setIsExpanded("b0")}}} className="cursor-pointer" color="#000000"/>
                 </motion.div>
             </div>
             {isExpanded == "b2" ? 
@@ -111,9 +113,9 @@ const SectionMenu = () => {
                 }}
                 onClick={() => {
                 setIsExpanded("b3"); if (isExpanded === "b3") {setIsExpanded("b0")}}}
-                className={`${isExpanded == "b3" ? 'font-bold text-xl text-[#303030] cursor-pointer' : 'font-medium flex flex-col text-[#303030] cursor-pointer'}`}>Marketing</motion.div>
+                className={`${isExpanded == "b3" ? 'font-bold text-xl text-[#303030] cursor-pointer' : 'font-semibold flex flex-col text-[#303030] cursor-pointer'}`}>Marketing</motion.div>
                 <motion.div
-                    className="flex items-end justify-center"
+                    className="flex items-end justify-center h-full"
                     animate={{
                         rotate: isExpanded === "b3" ? -180 : 0,
                     }}
@@ -127,7 +129,7 @@ const SectionMenu = () => {
                         <ChevronDown onClick={() => {setIsExpanded("b3"); if (isExpanded === "b3") {setIsExpanded("b0")}}} className="cursor-pointer" color="#000000"/>
                 </motion.div>
             </div>
-            {isExpanded == "b3" ? 
+            {isExpanded == "b3" ?
             <motion.div
             initial={{ opacity: 0, y: -12}}
             whileInView={{ opacity: 1, y: 0 }}

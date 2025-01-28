@@ -1,8 +1,26 @@
 import { motion } from "motion/react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Slider = () => {
     const [isActive, setIsActive] = useState("p1");
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const imageSrc =
+        isActive === "p1"
+        ? "./rec1.png"
+        : isActive === "p2"
+        ? "./rec2.png"
+        : isActive === "p3"
+        ? "./rec3.png"
+        : "";
+
+    useEffect(() => {
+        const img = new window.Image();
+        img.src = imageSrc;
+        img.onload = () => setIsLoaded(true);
+    }, [imageSrc]);
+
 
     useEffect(() => {
         const photos = ["p1", "p2", "p3"];
@@ -16,7 +34,7 @@ const Slider = () => {
     },[])
 
     return (
-        <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-2/3">
+        <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-2/3 z-20">
             <div className="hidden md:flex md:flex-col gap-1">
                 <button 
                 onClick={() => {setIsActive("p1")}}
@@ -28,23 +46,16 @@ const Slider = () => {
                 onClick={() => {setIsActive("p3")}}
                 className={`${isActive === "p3" ? "bg-[#5C5C5C]" : "bg-[#C2C2C2]"} w-3 h-3 rounded-full transition duration-1000 ease-in-out`}/>
             </div>
-            <div>
+            <div className="bg-white rounded-xl">
                 <motion.img
                 key={isActive}
-                initial={{ opacity: 0.6 }}
+                initial={{ opacity: 0.3 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0.3 }}  // Se a imagem sair, vai desaparecer
-                transition={{ duration: 2.5, ease: "easeInOut"}}  // Duração da transição
+                exit={{ opacity: 1 }}
+                transition={{ duration: 2, ease: "easeInOut"}}
                 className="rounded-xl shadow-md"
-                src={
-                    isActive === "p1"
-                    ? "./rec1.png"
-                    : isActive === "p2"
-                    ? "./rec2.png"
-                    : isActive === "p3"
-                    ? "./rec3.png"
-                    : ""
-                }    
+                src={imageSrc}
+                onLoad={() => setIsLoaded(true)}  
                 alt="1"/>
             </div>
             <div className="flex md:hidden mt-3 gap-1">

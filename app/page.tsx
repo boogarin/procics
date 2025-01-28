@@ -52,6 +52,8 @@ export default function Home() {
 
   const myRef = useRef<HTMLDivElement | null>(null);
 
+  const transition = { duration: 4, yoyo: Infinity, ease: "easeInOut" }
+  
   return (
     <div>
     <Spotlight/>
@@ -63,6 +65,7 @@ export default function Home() {
         <ul className='hidden md:flex space-x-10 text-white font-light'>
           <li className="font-jet hover:underline cursor-pointer z-10 transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">INÍCIO</li>
           <li className="font-jet hover:underline cursor-pointer z-10 transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">SERVIÇOS</li>
+          <li className="font-jet hover:underline cursor-pointer z-10 transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">PROJETOS</li>
         </ul>
       </div>
     </motion.div>
@@ -141,28 +144,28 @@ export default function Home() {
     </motion.div>
     </motion.div>
 
-    <div className="flex bg-white -mt-5">
+    <div className="flex bg-white">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40">
-        <path fill="#202020" fill-opacity="1" d="M0,32L1440,0L1440,0L0,0Z"></path>
+        <path fill="#202020" fillOpacity="1" d="M0,32L1440,0L1440,0L0,0Z"></path>
       </svg>
     </div>
 
     {/* SECTION FOUR */}
-    <div className="bg-white flex w-full h-full">
+    <div className="bg-white flex w-full h-full py-5">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
 
         <div className="flex flex-col md:flex-row md:justify-between w-full p-5 md:p-0">
-          <span className="text-black text-2xl font-bold">CICLO DE DESENVOLVIMENTO</span>
-          <div className="font-jet text-black hover:underline mt-2 md:mt-1 cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">SAIBA MAIS...</div>
+          <span className="text-black text-3xl font-bold z-20 font-jet">CICLO DE DESENVOLVIMENTO</span>
+          <div className="font-jet text-black hover:underline mt-2 md:mt-1 cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105 w-fit">SAIBA MAIS...</div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between w-full items-center">
-          <div className="flex flex-col w-full md:w-2/5 mb-3 p-5 md:mt-5 md:p-0">
-            <span className="text-[#4d4d4d] mb-5">Entenda como funciona as etapas do nosso processo de desenvolvimento...</span>
+        <div className="flex flex-col md:flex-row justify-between md:mt-5 w-full items-center">
+          <div className="flex flex-col w-full md:w-2/5 p-5 md:mt-5 md:p-0">
+            <span className="text-[#4d4d4d] mb-5 z-20">Entenda como funciona as etapas do nosso processo de desenvolvimento...</span>
             <SectionMenu/>
           </div>
 
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-5">
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Slider/>
           </div>
         </div>
@@ -170,23 +173,29 @@ export default function Home() {
       </div>
     </div>
 
+    <div className="flex bg-white rotate-180">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1 1440 40">
+        <path fill="#373737" fillOpacity="1" d="M0,32L1440,0L1440,0L0,0Z"></path>
+      </svg>
+    </div>
+
 
     {/* SECTION FIVE */}
     <motion.div ref= {myRef} id="contact" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 1}}} viewport={{once: true}}
-    className="py-3 bg-[#373737]">
+    className="py-10 pt-11 bg-[#373737]">
       <motion.div className="flex flex-col md:flex-row start justify-between items-center md:items-start w-[calc(100%-5px)] lg:w-[calc(100%-40px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
         <div className="text-center mb-10 -mt-5 md:mb-0 md:text-left md:w-1/3 flex flex-col">
           <GenerateText words={words}/>
-          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3}}} viewport={{once: true}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
-          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 3.5}}} viewport={{once: true}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
-          <motion.div className="flex flex-col" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 3, delay: 4}}} viewport={{once: true}}>
+          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2, delay: 2.5}}} viewport={{once: true}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
+          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2, delay: 3}}} viewport={{once: true}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
+          <motion.div className="flex flex-col" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2, delay: 3.5}}} viewport={{once: true}}>
             <div className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
               <SiMailboxdotorg size={18}/>
-              <span className="font-semibold">procics@procics.com</span>
+              <span className="font-semibold">luciana.sato@procics.com</span>
             </div>
             <div className="flex space-x-3 items-center justify-center md:justify-normal">
               <SiWhatsapp size={20}/>
-              <span className="font-semibold">(11) 94089-7932</span>
+              <span className="font-semibold">(11) 98319-9825</span>
             </div>
           </motion.div>
 
@@ -211,8 +220,8 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-end font-jet">
           <span className="font-bold mb-2 text-lg">Entre em contato</span>
-          <span className="mb-1">contato@procics.com.br</span>
-          <span className="mb-5">(11) 00000-0000</span>
+          <span className="mb-1">luciana.sato@procics.com.br</span>
+          <span className="mb-5">(11) 98319-9825</span>
         </div>
       </div>
     </motion.div>
