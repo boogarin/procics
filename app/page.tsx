@@ -51,8 +51,6 @@ export default function Home() {
   const words = `Você está pronto para começar sua nova jornada?`
 
   const myRef = useRef<HTMLDivElement | null>(null);
-
-  const transition = { duration: 4, yoyo: Infinity, ease: "easeInOut" }
   
   return (
     <div>

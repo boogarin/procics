@@ -1,10 +1,8 @@
 import { motion } from "motion/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Slider = () => {
     const [isActive, setIsActive] = useState("p1");
-    const [isLoaded, setIsLoaded] = useState(false);
 
     const imageSrc =
         isActive === "p1"
@@ -18,7 +16,6 @@ const Slider = () => {
     useEffect(() => {
         const img = new window.Image();
         img.src = imageSrc;
-        img.onload = () => setIsLoaded(true);
     }, [imageSrc]);
 
 
@@ -55,7 +52,6 @@ const Slider = () => {
                 transition={{ duration: 2, ease: "easeInOut"}}
                 className="rounded-xl shadow-md"
                 src={imageSrc}
-                onLoad={() => setIsLoaded(true)}  
                 alt="1"/>
             </div>
             <div className="flex md:hidden mt-3 gap-1">
