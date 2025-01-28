@@ -129,7 +129,7 @@ export default function Home() {
 
     {/* SECTION THREE */}
     <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 1}}} viewport={{once: true}}
-    className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
+    className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 py-10 md:py-0 md:p-10 lg:p-14">
     <div className="flex justify-between">
       <div className="font-bold text-lg mb-5">NOSSOS PROJETOS</div>
       <div className="font-jet hover:underline cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">VEJA TODOS...</div>
