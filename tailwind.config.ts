@@ -30,6 +30,7 @@ export default {
     },
     fontFamily: {
       jet: ['JetBrains Mono'],
+      playfair: ['Playfair Display']
     }
   },
   plugins: [],

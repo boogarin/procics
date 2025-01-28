@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { SiInstagram, SiMailboxdotorg, SiWhatsapp, SiX } from '@icons-pack/react-simple-icons';
-import { motion, useSpring, useTime, useTransform } from "framer-motion";
+import { motion, useSpring, useTime, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import Card from "./components/Card";
@@ -12,6 +12,8 @@ import { GenerateText } from "./components/GenerateText";
 import ContactForm from "./components/ContactForm";
 import SectionMenu from "./components/SectionMenu";
 import Slider from "./components/Slider";
+import Service from "./components/Services";
+import { GlobeLock, LayoutDashboardIcon, Wrench } from "lucide-react";
 
 export default function Home() {
   const time = useTime();
@@ -50,7 +52,11 @@ export default function Home() {
 
   const words = `Você está pronto para começar sua nova jornada?`
 
-  const myRef = useRef<HTMLDivElement | null>(null);
+  const contact = useRef<HTMLDivElement | null>(null);
+  const services = useRef<HTMLDivElement | null>(null);
+
+
+  const transition = { duration: 4, yoyo: Infinity, ease: "easeInOut" }
   
   return (
     <div>
@@ -62,7 +68,7 @@ export default function Home() {
       <div className='flex space-x-10 items-center'>
         <ul className='hidden md:flex space-x-10 text-white font-light'>
           <li className="font-jet hover:underline cursor-pointer z-10 transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">INÍCIO</li>
-          <li className="font-jet hover:underline cursor-pointer z-10 transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">SERVIÇOS</li>
+          <li onClick={() => {services.current?.scrollIntoView({behavior: "smooth"})}} className="font-jet hover:underline cursor-pointer z-10 transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">SERVIÇOS</li>
           <li className="font-jet hover:underline cursor-pointer z-10 transition ease-in-out duration-100 hover:font-extrabold hover:scale-105">PROJETOS</li>
         </ul>
       </div>
@@ -97,7 +103,7 @@ export default function Home() {
 
     {/* SECTION TWO */}
     <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 1}}} viewport={{once: true}}
-    className="bg-[#373737] relative z-10 h-full p-14">
+    className="bg-gradient-to-br from-[#373737]/20 to-[#FFFFFF]/10 backdrop-blur-xl relative z-10 h-full p-14">
       <div className="flex flex-col lg:flex-row justify-between items-center w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto">
         <div className="flex flex-col lg:flex-row justify-between w-full lg:w-4/6">
           <div className="flex text-center lg:text-left flex-col space-y-2 w-full lg:w-2/5">
@@ -113,7 +119,7 @@ export default function Home() {
         </div>
         <div className="relative">
           <div className="group mt-10 lg:mt-0">
-            <motion.button onClick={() => {myRef.current?.scrollIntoView({behavior: "smooth"})}} variants={variants} whileHover="hover" className="relative bg-white h-16 rounded-2xl z-10 px-10">
+            <motion.button onClick={() => {contact.current?.scrollIntoView({behavior: "smooth"})}} variants={variants} whileHover="hover" className="relative bg-white h-16 rounded-2xl z-10 px-10">
               <span className="text-[#313D6A] font-bold text-xl">Entre em contato</span>
             </motion.button>
             <motion.button className="absolute rounded-2xl group-hover:-inset-1 mt-10 lg:mt-0"
@@ -154,6 +160,7 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row md:justify-between w-full p-5 md:p-0">
           <span className="text-black text-3xl font-bold z-20 font-jet">CICLO DE DESENVOLVIMENTO</span>
+
           <div className="font-jet text-black hover:underline mt-2 md:mt-1 cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105 w-fit">SAIBA MAIS...</div>
         </div>
 
@@ -171,16 +178,57 @@ export default function Home() {
       </div>
     </div>
 
-    <div className="flex bg-white rotate-180">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1 1440 40">
-        <path fill="#373737" fillOpacity="1" d="M0,32L1440,0L1440,0L0,0Z"></path>
+    {/* SECTION FIVE */}
+    <div className="absolute -mt-16 md:-mt-44">
+      <svg width="1440" height="349" viewBox="0 0 1640 349" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.path d="M-382 47.2894C668.5 -96.8037 891 525 1512.5 255" stroke="#BED0FF" stroke-width="40" stroke-linecap="round"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={transition}/>
       </svg>
     </div>
 
 
-    {/* SECTION FIVE */}
-    <motion.div ref= {myRef} id="contact" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 1}}} viewport={{once: true}}
-    className="py-10 pt-11 bg-[#373737]">
+    <div ref= {services} className="absolute right-0 -mr-32 lg:mr-0 -mt-5 opacity-100 animate-pulse z-10">
+      <motion.svg className="absolute right-40 mt-32 z-10" initial={{y: 0}} animate={{y: [0, -10, 0]}} transition={{repeat: Infinity, ease: "easeInOut", duration: 3, delay: 3.5}} width="467" height="519" viewBox="0 0 467 519" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <motion.path d="M303.449 8.10281L466.15 99.784L404.57 197.027" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M167.759 176.11L41.8445 51" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M43.5126 467.782L87.6878 406.699" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M230.017 331.678L195.59 465.466L330.935 437.786" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      </motion.svg>
+      <motion.svg className="absolute right-40 mt-32 z-10" initial={{y: 0}} animate={{y: [-10, -30, -10]}} transition={{repeat: Infinity, ease: "easeInOut", duration: 3.5, delay: 4}} width="467" height="519" viewBox="0 0 467 519" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <motion.path d="M136.215 71.7023C138.079 69.0977 141.197 67.6393 144.391 67.8778L297.997 79.3355C301.191 79.5739 303.979 81.472 305.309 84.3153L369.266 221.029C370.596 223.872 370.266 227.229 368.402 229.834L278.752 355.09C276.888 357.695 273.77 359.153 270.576 358.915L116.969 347.457C113.775 347.218 110.987 345.32 109.658 342.477L45.7012 205.763C44.371 202.92 44.7002 199.563 46.5647 196.958L136.215 71.7023Z" stroke="#C587F9" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M450.539 507.525L305.226 489.423L392.364 382.224L450.539 507.525Z" stroke="#ddb5ff" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M1 268.948L130.11 216.632" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M43 333.923L155.43 418.744" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      </motion.svg>
+    </div>
+
+
+
+    <div className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
+      <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14 text-[#4d4d4d] z-20">
+        <div className="flex flex-col gap-7">
+          <span className="text-center md:text-left text-5xl font-playfair">Nossos serviços</span>
+          <span className="text-center md:text-left md:w-2/4 mb-10 tracking-wide">A Procics atua em todas as etapas do projeto, desde a Prototipação, Desenvolvimento e Homologação, até a Instalação e Suporte do produto entregue.</span>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5">
+          <Service title="Segurança da Informação" subtitle="Serviços de segurança, roteamento e autorização de transações..." Icon={GlobeLock}/>
+          <Service title="Plataformas e Softwares" subtitle="Desde plataformas (SaaS) com vários usuários até softwares corporativos..." Icon={LayoutDashboardIcon}/>
+          <Service title="Suporte e Manutenção" subtitle="Com a Procics, você tem um time de TI exclusivo para o seu negócio..."  Icon={Wrench}/>
+        </div>
+      </div>
+    </div>
+
+    <div className="bg-purple-200 rotate-180 flex">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1 1440 40">
+        <path fill="#252525" fillOpacity="1" d="M0,32L1440,0L1440,0L0,0Z"></path>
+      </svg>
+    </div>
+
+    {/* SECTION SIX */}
+    <motion.div ref={contact} initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 1}}} viewport={{once: true}}
+    className="py-10 pt-11 bg-[#252525]">
       <motion.div className="flex flex-col md:flex-row start justify-between items-center md:items-start w-[calc(100%-5px)] lg:w-[calc(100%-40px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
         <div className="text-center mb-10 -mt-5 md:mb-0 md:text-left md:w-1/3 flex flex-col">
           <GenerateText words={words}/>
