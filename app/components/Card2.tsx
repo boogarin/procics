@@ -103,7 +103,7 @@ const Card2 = () => {
                             <Image className="h-10 w-10 rounded-xl" draggable={false} src={"/imatch-icon.png"} alt="" height={50} width={200}/>
                             <div className="truncate w-4/5 flex flex-col">
                                 <span className="font-semibold">iMatch</span>
-                                <span>Você acabou de dar um match com Ana!</span>
+                                <span className="truncate">Você recebeu uma mensagem de Ana!</span>
                             </div>
                             </div>
                         </motion.div>

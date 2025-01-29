@@ -55,9 +55,9 @@ export default function Home() {
   const contact = useRef<HTMLDivElement | null>(null);
   const services = useRef<HTMLDivElement | null>(null);
 
-  const transition = { duration: 6, yoyo: Infinity, ease: "easeInOut" }
-  const transition2 = { duration: 3, yoyo: Infinity, ease: "easeInOut", delay: 0.5 }
-  const transition3 = { duration: 4, yoyo: Infinity, ease: "easeInOut" }
+  const transition = { duration: 5, yoyo: Infinity, ease: "easeInOut" }
+  const transition2 = { duration: 1, yoyo: Infinity, ease: "easeInOut", delay: 0.5 }
+  const transition3 = { duration: 4, yoyo: Infinity, ease: "easeInOut"}
 
   const [inView, setInView] = useState(false);
   const [inViewTitle, setInViewTitle] = useState(false);
@@ -119,7 +119,7 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center lg:text-justify mt-8 lg:mt-0 lg:w-4/5">
-          Somos um estúdio de produção digital que oferece uma nova maneira de trazer suas ideias à vida. Nossa equipe é capaz de entregar resultados e soluções que excedem suas expectativas e engaja seus clientes.
+          Somos um estúdio de produção digital que oferece uma nova maneira de trazer suas ideias à vida. Nossa equipe é capaz de entregar resultados e soluções que excedem suas expectativas e engajam seus clientes.
           </div>
         </div>
         <div className="relative">
@@ -184,7 +184,7 @@ export default function Home() {
             <SectionMenu/>
           </div>
 
-          <motion.div onViewportEnter={() => {setInView(true)}} className="w-full md:w-1/2 flex justify-center md:justify-end">
+          <motion.div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Slider/>
           </motion.div>
         </div>
@@ -218,10 +218,10 @@ export default function Home() {
       </motion.svg>
     </div>
 
-    <motion.div onViewportEnter={() => {setInViewShape(true)}} className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
+    <motion.div onViewportEnter={() => {setInView(true)}} className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14 text-[#4d4d4d] z-20">
         <div className="flex flex-col gap-7">
-          <span className="text-center md:text-left text-5xl font-playfair">Nossos serviços</span>
+          <motion.span onViewportEnter={() => {setInViewShape(true)}} className="text-center md:text-left text-5xl font-playfair">Nossos serviços</motion.span>
           <span className="text-center md:text-left md:w-2/4 mb-10 tracking-wide">A Procics atua em todas as etapas do projeto, desde a Prototipação, Desenvolvimento e Homologação, até a Instalação e Suporte do produto entregue.</span>
         </div>
         <div className="flex flex-col md:flex-row gap-5">
@@ -244,9 +244,9 @@ export default function Home() {
       <motion.div className="flex flex-col md:flex-row start justify-between items-center md:items-start w-[calc(100%-5px)] lg:w-[calc(100%-40px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
         <div className="text-center mb-10 -mt-5 md:mb-0 md:text-left md:w-1/3 flex flex-col">
           <GenerateText words={words}/>
-          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2, delay: 2.5}}} viewport={{once: true}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
-          <motion.span initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2, delay: 3}}} viewport={{once: true}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
-          <motion.div className="flex flex-col" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2, delay: 3.5}}} viewport={{once: true}}>
+          <motion.span initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 2, delay: 1.8}}} viewport={{once: true}} className="opacity-75 mt-5">Preencha o formulário para entrar em contato com nossa equipe e iremos retornar o mais rápido possível.</motion.span>
+          <motion.span initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 2, delay: 2.3}}} viewport={{once: true}} className="opacity-75 mt-5 mb-5">Caso prefira, também estamos disponíveis por e-mail e telefone:</motion.span>
+          <motion.div className="flex flex-col" initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 2, delay: 2.8}}} viewport={{once: true}}>
             <div className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
               <SiMailboxdotorg size={18}/>
               <span className="font-semibold">luciana.sato@procics.com</span>
