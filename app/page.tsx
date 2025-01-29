@@ -62,6 +62,20 @@ export default function Home() {
   const [inView, setInView] = useState(false);
   const [inViewTitle, setInViewTitle] = useState(false);
   const [inViewShape, setInViewShape] = useState(false);
+  const [inViewServices, setInViewServices] = useState(false)
+
+  const serviceVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index: number) => ({
+      opacity: inViewServices ? 1 : 0,
+      y: 0,
+      transition: {
+        delay: index * 1,
+        duration: 2.5,
+        type: "spring",
+      },
+    }),
+  };
   
   return (
     <div>
@@ -164,22 +178,25 @@ export default function Home() {
     <motion.div className="bg-white flex w-full h-full py-5">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
 
-        <div className="flex flex-col md:flex-row md:justify-between w-full p-5 md:p-0">
-          <div className="relative inline-block">
+        <motion.div initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 1}}} className="flex flex-col md:flex-row md:justify-between w-full p-5 md:p-0">
+          <motion.div viewport={{once: true}} className="relative inline-block">
             <motion.span onViewportEnter={() => {setInViewTitle(true)}} className="text-black text-3xl font-bold z-20 font-jet">CICLO DE DESENVOLVIMENTO</motion.span>
             <svg className="absolute w-full overflow-hidden" width="400" height="5" viewBox="0 0 600 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <motion.line y1="2.5" x2="600" y2="2.5" stroke="#A957F7" stroke-width="5"
+              <motion.line y1="2.5" x2="600" y2="2.5" stroke="#A957F7" strokeWidth="5"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: inViewTitle ? 1 : 0 }}
               transition={transition2}/>
             </svg>
-          </div>
+          </motion.div>
 
-          <div className="font-jet text-black hover:underline mt-2 md:mt-1 cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105 w-fit">SAIBA MAIS...</div>
-        </div>
+          <motion.div
+          className="font-jet text-black hover:underline mt-2 md:mt-1 cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105 w-fit">
+            SAIBA MAIS...
+          </motion.div>
+        </motion.div>
 
-        <div className="flex flex-col md:flex-row justify-between md:mt-5 w-full items-center">
-          <div className="flex flex-col w-full md:w-2/5 p-5 md:mt-5 md:p-0">
+        <motion.div initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 1}}} viewport={{once: true}} className="flex flex-col md:flex-row justify-between md:mt-5 w-full items-center">
+          <div className="flex flex-col w-full md:w-2/5 p-5 md:mt-5 md:p-0 z-30">
             <span className="text-[#4d4d4d] mb-5 z-20">Entenda como funciona as etapas do nosso processo de desenvolvimento...</span>
             <SectionMenu/>
           </div>
@@ -187,7 +204,7 @@ export default function Home() {
           <motion.div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Slider/>
           </motion.div>
-        </div>
+        </motion.div>
 
       </div>
     </motion.div>
@@ -195,40 +212,71 @@ export default function Home() {
     {/* SECTION FIVE */}
       <motion.div className="relative max-w-screen overflow-x-clip">
       <svg className="absolute -mt-16 md:-mt-40" width="1440" height="349" viewBox="0 0 1640 349" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <motion.path d="M-382 47.2894C668.5 -96.8037 891 525 1512.5 255" stroke="#BED0FF" stroke-width="40" stroke-linecap="round"
+        <motion.path d="M-382 47.2894C668.5 -96.8037 891 525 1512.5 255" stroke="#BED0FF" strokeWidth="40" strokeLinecap="round"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: inView ? 1 : 0 }}
         transition={transition}/>
       </svg>
     </motion.div>
 
-
-    <div ref= {services} className="absolute w-full h-auto right-0 -mt-5 opacity-100 animate-pulse z-10">
+    <div ref= {services} className="absolute w-full h-auto right-0 -mt-10 opacity-100 animate-pulse z-10">
       <motion.svg className="absolute right-0 2xl:right-40 mt-32 z-10" initial={{y: 0}} animate={{y: [0, -10, 0]}} transition={{repeat: Infinity, ease: "easeInOut", duration: 3, delay: 3.5}} width="467" height="519" viewBox="0 0 467 519" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <motion.path d="M303.449 8.10281L466.15 99.784L404.57 197.027" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
-      <motion.path d="M167.759 176.11L41.8445 51" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
-      <motion.path d="M43.5126 467.782L87.6878 406.699" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
-      <motion.path d="M230.017 331.678L195.59 465.466L330.935 437.786" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M303.449 8.10281L466.15 99.784L404.57 197.027" stroke="#ddb5ff" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M167.759 176.11L41.8445 51" stroke="#ddb5ff" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M43.5126 467.782L87.6878 406.699" stroke="#C587F9" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M230.017 331.678L195.59 465.466L330.935 437.786" stroke="#C587F9" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
       </motion.svg>
       <motion.svg className="absolute right-20 2xl:right-40 mt-32 z-10" initial={{y: 0}} animate={{y: [-10, -30, -10]}} transition={{repeat: Infinity, ease: "easeInOut", duration: 3.5, delay: 4}} width="467" height="519" viewBox="0 0 467 519" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <motion.path d="M136.215 71.7023C138.079 69.0977 141.197 67.6393 144.391 67.8778L297.997 79.3355C301.191 79.5739 303.979 81.472 305.309 84.3153L369.266 221.029C370.596 223.872 370.266 227.229 368.402 229.834L278.752 355.09C276.888 357.695 273.77 359.153 270.576 358.915L116.969 347.457C113.775 347.218 110.987 345.32 109.658 342.477L45.7012 205.763C44.371 202.92 44.7002 199.563 46.5647 196.958L136.215 71.7023Z" stroke="#C587F9" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
-      <motion.path d="M450.539 507.525L305.226 489.423L392.364 382.224L450.539 507.525Z" stroke="#ddb5ff" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
-      <motion.path d="M1 268.948L130.11 216.632" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
-      <motion.path d="M43 333.923L155.43 418.744" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M136.215 71.7023C138.079 69.0977 141.197 67.6393 144.391 67.8778L297.997 79.3355C301.191 79.5739 303.979 81.472 305.309 84.3153L369.266 221.029C370.596 223.872 370.266 227.229 368.402 229.834L278.752 355.09C276.888 357.695 273.77 359.153 270.576 358.915L116.969 347.457C113.775 347.218 110.987 345.32 109.658 342.477L45.7012 205.763C44.371 202.92 44.7002 199.563 46.5647 196.958L136.215 71.7023Z" stroke="#C587F9" strokeLinecap="round" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M450.539 507.525L305.226 489.423L392.364 382.224L450.539 507.525Z" stroke="#ddb5ff" strokeLinecap="round" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M1 268.948L130.11 216.632" stroke="#ddb5ff" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M43 333.923L155.43 418.744" stroke="#C587F9" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
       </motion.svg>
     </div>
 
-    <motion.div onViewportEnter={() => {setInView(true)}} className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
+    <motion.div 
+    onViewportEnter={() => {setInView(true)}}
+    className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14 text-[#4d4d4d] z-20">
-        <div className="flex flex-col gap-7">
+        
+        <motion.div
+        onViewportEnter={() => {setInViewServices(true)}}
+        initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 1}}} viewport={{once: true}}
+        className="flex flex-col gap-7">
           <motion.span onViewportEnter={() => {setInViewShape(true)}} className="text-center md:text-left text-5xl font-playfair">Nossos serviços</motion.span>
           <span className="text-center md:text-left md:w-2/4 mb-10 tracking-wide">A Procics atua em todas as etapas do projeto, desde a Prototipação, Desenvolvimento e Homologação, até a Instalação e Suporte do produto entregue.</span>
-        </div>
-        <div className="flex flex-col md:flex-row gap-5">
-          <Service title="Segurança da Informação" subtitle="Serviços de segurança, roteamento e autorização de transações..." Icon={GlobeLock}/>
-          <Service title="Plataformas e Softwares" subtitle="Desde plataformas (SaaS) com vários usuários até softwares corporativos..." Icon={LayoutDashboardIcon}/>
-          <Service title="Suporte e Manutenção" subtitle="Com a Procics, você tem um time de TI exclusivo para o seu negócio..."  Icon={Wrench}/>
-        </div>
+        </motion.div>
+
+        <motion.div className="flex flex-col md:flex-row gap-5">
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            animate="visible"
+            variants={serviceVariants}
+            custom={0}
+          >
+            <Service title="Segurança da Informação" subtitle="Serviços de segurança, roteamento e autorização de transações..." Icon={GlobeLock} />
+          </motion.div>
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            animate="visible"
+            variants={serviceVariants}
+            custom={1}
+          >
+            <Service title="Plataformas e Softwares" subtitle="Desde plataformas (SaaS) com vários usuários até softwares corporativos..." Icon={LayoutDashboardIcon} />
+          </motion.div>
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            animate="visible"
+            variants={serviceVariants}
+            custom={2}
+          >
+            <Service title="Suporte e Manutenção" subtitle="Com a Procics, você tem um time de TI exclusivo para o seu negócio..." Icon={Wrench} />
+          </motion.div>
+        </motion.div>
+       
       </div>
     </motion.div>
 
@@ -240,7 +288,7 @@ export default function Home() {
 
     {/* SECTION SIX */}
     <motion.div ref={contact} initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 1}}} viewport={{once: true}}
-    className="py-10 pt-11 bg-[#252525]">
+    className="py-5 pt-11 bg-[#252525]">
       <motion.div className="flex flex-col md:flex-row start justify-between items-center md:items-start w-[calc(100%-5px)] lg:w-[calc(100%-40px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
         <div className="text-center mb-10 -mt-5 md:mb-0 md:text-left md:w-1/3 flex flex-col">
           <GenerateText words={words}/>
@@ -256,7 +304,6 @@ export default function Home() {
               <span className="font-semibold">(11) 98319-9825</span>
             </div>
           </motion.div>
-
         </div>
         <ContactForm/>
       </motion.div>

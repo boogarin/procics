@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 
 const Slider = () => {
     const [isActive, setIsActive] = useState("p1");
+    const [opacity, setOpacity] = useState(1)
 
     const imageSrc =
         isActive === "p1"
-        ? "./rec1.png"
+        ? "./rec1.webp"
         : isActive === "p2"
         ? "./rec2.png"
         : isActive === "p3"
-        ? "./rec3.png"
+        ? "./rec3.webp"
         : "";
 
     useEffect(() => {
@@ -20,15 +21,20 @@ const Slider = () => {
 
 
     useEffect(() => {
-        const photos = ["p1", "p2", "p3"];
-        let index = 0;
-        const alternate = () => {
-            index = (index + 1) % photos.length;
-            setIsActive(photos[index])
-        }
-        const timer = setInterval(alternate, 6000)
-        return () => clearInterval(timer)
-    },[])
+        const timer = setInterval(() => {
+            setOpacity(0);
+            setTimeout(() => {
+                setIsActive(prev => {
+                    const photos = ["p1", "p2", "p3"];
+                    const index = photos.indexOf(prev);
+                    return photos[(index + 1) % photos.length];
+                });
+                setOpacity(1);
+            }, 500);
+        }, 6000);
+
+        return () => clearInterval(timer); // Limpeza do intervalo
+    }, []);
 
     return (
         <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-2/3 z-20">
@@ -45,10 +51,10 @@ const Slider = () => {
             </div>
             <div className="bg-white rounded-xl">
                 <motion.img
-                initial={{ opacity: 0.3 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 1 }}
-                transition={{ duration: 2, ease: "easeInOut"}}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: opacity }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut"}}
                 className="rounded-xl shadow-md"
                 src={imageSrc}
                 alt="pictures"/>
