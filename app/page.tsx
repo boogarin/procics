@@ -178,7 +178,7 @@ export default function Home() {
     <motion.div className="bg-white flex w-full h-full py-5">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
 
-        <motion.div initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 1}}} className="flex flex-col md:flex-row md:justify-between w-full p-5 md:p-0">
+        <motion.div initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 1}}} viewport={{once: true}} className="flex flex-col md:flex-row md:justify-between w-full p-5 md:p-0">
           <motion.div viewport={{once: true}} className="relative inline-block">
             <motion.span onViewportEnter={() => {setInViewTitle(true)}} className="text-black text-3xl font-bold z-20 font-jet">CICLO DE DESENVOLVIMENTO</motion.span>
             <svg className="absolute w-full overflow-hidden" width="400" height="5" viewBox="0 0 600 5" fill="none" xmlns="http://www.w3.org/2000/svg">

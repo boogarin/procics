@@ -15,12 +15,6 @@ const Slider = () => {
         : "";
 
     useEffect(() => {
-        const img = new window.Image();
-        img.src = imageSrc;
-    }, [imageSrc]);
-
-
-    useEffect(() => {
         const timer = setInterval(() => {
             setOpacity(0);
             setTimeout(() => {
@@ -49,11 +43,11 @@ const Slider = () => {
                 onClick={() => {setIsActive("p3")}}
                 className={`${isActive === "p3" ? "bg-[#5C5C5C]" : "bg-[#C2C2C2]"} w-3 h-3 rounded-full transition duration-1000 ease-in-out`}/>
             </div>
-            <div className="bg-white rounded-xl">
+            <div className="bg-white h-96 rounded-xl">
                 <motion.img
                 initial={{ opacity: 0 }}
                 animate={{ opacity: opacity }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0.5 }}
                 transition={{ duration: 0.6, ease: "easeInOut"}}
                 className="rounded-xl shadow-md"
                 src={imageSrc}
