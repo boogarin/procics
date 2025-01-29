@@ -88,11 +88,11 @@ const Card = () => {
                             <span className="w-full text-center md:text-left xl:w-3/4 z-30">Realize agendamentos direto do seu celular. A qualquer momento e em qualquer lugar.</span>
                         </div>
                         <div className="flex max-w-[600px] justify-between mt-8">
-                            <div className="flex flex-col md:w-1/2 xl:w-2/2">
+                            <div className="flex flex-col w-1/2 xl:w-2/2">
                                 <span className="font-extrabold text-xl z-30">+25 mil</span>
                                 <span className="z-30">Usuários ativos</span>
                             </div>
-                            <div className="flex flex-col md:w-1/2 xl:w-auto">
+                            <div className="flex flex-col w-1/2 xl:w-auto">
                                 <span className="font-extrabold text-xl z-30">95%</span>
                                 <span className="z-30 truncate">Aprovação de usuários</span>
                             </div>

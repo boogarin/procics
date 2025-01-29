@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { SiInstagram, SiMailboxdotorg, SiWhatsapp, SiX } from '@icons-pack/react-simple-icons';
 import { motion, useSpring, useTime, useTransform } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import Card from "./components/Card";
 import Card2 from "./components/Card2";
@@ -55,7 +55,13 @@ export default function Home() {
   const contact = useRef<HTMLDivElement | null>(null);
   const services = useRef<HTMLDivElement | null>(null);
 
-  const transition = { duration: 4, yoyo: Infinity, ease: "easeInOut", delay: 1.5 }
+  const transition = { duration: 6, yoyo: Infinity, ease: "easeInOut" }
+  const transition2 = { duration: 3, yoyo: Infinity, ease: "easeInOut", delay: 0.5 }
+  const transition3 = { duration: 4, yoyo: Infinity, ease: "easeInOut" }
+
+  const [inView, setInView] = useState(false);
+  const [inViewTitle, setInViewTitle] = useState(false);
+  const [inViewShape, setInViewShape] = useState(false);
   
   return (
     <div>
@@ -148,23 +154,24 @@ export default function Home() {
     </motion.div>
 
     <div className="flex bg-white">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1 1440 40">
         <path fill="#202020" fillOpacity="1" d="M0,32L1440,0L1440,0L0,0Z"></path>
       </svg>
     </div>
+    
 
     {/* SECTION FOUR */}
-    <div className="bg-white flex w-full h-full py-5">
+    <motion.div className="bg-white flex w-full h-full py-5">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14">
 
         <div className="flex flex-col md:flex-row md:justify-between w-full p-5 md:p-0">
           <div className="relative inline-block">
-            <span className="text-black text-3xl font-bold z-20 font-jet">CICLO DE DESENVOLVIMENTO</span>
+            <motion.span onViewportEnter={() => {setInViewTitle(true)}} className="text-black text-3xl font-bold z-20 font-jet">CICLO DE DESENVOLVIMENTO</motion.span>
             <svg className="absolute w-full overflow-hidden" width="400" height="5" viewBox="0 0 600 5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <motion.line y1="2.5" x2="600" y2="2.5" stroke="#A957F7" stroke-width="5"
               initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={transition}/>
+              animate={{ pathLength: inViewTitle ? 1 : 0 }}
+              transition={transition2}/>
             </svg>
           </div>
 
@@ -177,43 +184,41 @@ export default function Home() {
             <SectionMenu/>
           </div>
 
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+          <motion.div onViewportEnter={() => {setInView(true)}} className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Slider/>
-          </div>
+          </motion.div>
         </div>
 
       </div>
-    </div>
+    </motion.div>
 
     {/* SECTION FIVE */}
-    <div className="relative max-w-screen overflow-x-clip">
-      <svg className="absolute -mt-16 md:-mt-44" width="1440" height="349" viewBox="0 0 1640 349" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <motion.div className="relative max-w-screen overflow-x-clip">
+      <svg className="absolute -mt-16 md:-mt-40" width="1440" height="349" viewBox="0 0 1640 349" fill="none" xmlns="http://www.w3.org/2000/svg">
         <motion.path d="M-382 47.2894C668.5 -96.8037 891 525 1512.5 255" stroke="#BED0FF" stroke-width="40" stroke-linecap="round"
         initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
+        animate={{ pathLength: inView ? 1 : 0 }}
         transition={transition}/>
       </svg>
-    </div>
+    </motion.div>
 
 
     <div ref= {services} className="absolute w-full h-auto right-0 -mt-5 opacity-100 animate-pulse z-10">
       <motion.svg className="absolute right-0 2xl:right-40 mt-32 z-10" initial={{y: 0}} animate={{y: [0, -10, 0]}} transition={{repeat: Infinity, ease: "easeInOut", duration: 3, delay: 3.5}} width="467" height="519" viewBox="0 0 467 519" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <motion.path d="M303.449 8.10281L466.15 99.784L404.57 197.027" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
-      <motion.path d="M167.759 176.11L41.8445 51" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
-      <motion.path d="M43.5126 467.782L87.6878 406.699" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
-      <motion.path d="M230.017 331.678L195.59 465.466L330.935 437.786" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M303.449 8.10281L466.15 99.784L404.57 197.027" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M167.759 176.11L41.8445 51" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M43.5126 467.782L87.6878 406.699" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M230.017 331.678L195.59 465.466L330.935 437.786" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
       </motion.svg>
       <motion.svg className="absolute right-20 2xl:right-40 mt-32 z-10" initial={{y: 0}} animate={{y: [-10, -30, -10]}} transition={{repeat: Infinity, ease: "easeInOut", duration: 3.5, delay: 4}} width="467" height="519" viewBox="0 0 467 519" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <motion.path d="M136.215 71.7023C138.079 69.0977 141.197 67.6393 144.391 67.8778L297.997 79.3355C301.191 79.5739 303.979 81.472 305.309 84.3153L369.266 221.029C370.596 223.872 370.266 227.229 368.402 229.834L278.752 355.09C276.888 357.695 273.77 359.153 270.576 358.915L116.969 347.457C113.775 347.218 110.987 345.32 109.658 342.477L45.7012 205.763C44.371 202.92 44.7002 199.563 46.5647 196.958L136.215 71.7023Z" stroke="#C587F9" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
-      <motion.path d="M450.539 507.525L305.226 489.423L392.364 382.224L450.539 507.525Z" stroke="#ddb5ff" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
-      <motion.path d="M1 268.948L130.11 216.632" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
-      <motion.path d="M43 333.923L155.43 418.744" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: 1, x: -30 }} transition={transition}/>
+      <motion.path d="M136.215 71.7023C138.079 69.0977 141.197 67.6393 144.391 67.8778L297.997 79.3355C301.191 79.5739 303.979 81.472 305.309 84.3153L369.266 221.029C370.596 223.872 370.266 227.229 368.402 229.834L278.752 355.09C276.888 357.695 273.77 359.153 270.576 358.915L116.969 347.457C113.775 347.218 110.987 345.32 109.658 342.477L45.7012 205.763C44.371 202.92 44.7002 199.563 46.5647 196.958L136.215 71.7023Z" stroke="#C587F9" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M450.539 507.525L305.226 489.423L392.364 382.224L450.539 507.525Z" stroke="#ddb5ff" stroke-linecap="round" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M1 268.948L130.11 216.632" stroke="#ddb5ff" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
+      <motion.path d="M43 333.923L155.43 418.744" stroke="#C587F9" stroke-linejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
       </motion.svg>
     </div>
 
-
-
-    <div className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
+    <motion.div onViewportEnter={() => {setInViewShape(true)}} className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14 text-[#4d4d4d] z-20">
         <div className="flex flex-col gap-7">
           <span className="text-center md:text-left text-5xl font-playfair">Nossos serviços</span>
@@ -225,7 +230,7 @@ export default function Home() {
           <Service title="Suporte e Manutenção" subtitle="Com a Procics, você tem um time de TI exclusivo para o seu negócio..."  Icon={Wrench}/>
         </div>
       </div>
-    </div>
+    </motion.div>
 
     <div className="bg-purple-200 rotate-180 flex">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1 1440 40">

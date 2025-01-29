@@ -45,14 +45,13 @@ const Slider = () => {
             </div>
             <div className="bg-white rounded-xl">
                 <motion.img
-                key={isActive}
                 initial={{ opacity: 0.3 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 1 }}
                 transition={{ duration: 2, ease: "easeInOut"}}
                 className="rounded-xl shadow-md"
                 src={imageSrc}
-                alt="1"/>
+                alt="pictures"/>
             </div>
             <div className="flex md:hidden mt-3 gap-1">
                 <button 
