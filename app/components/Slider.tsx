@@ -43,7 +43,7 @@ const Slider = () => {
                 onClick={() => {setIsActive("p3")}}
                 className={`${isActive === "p3" ? "bg-[#5C5C5C]" : "bg-[#C2C2C2]"} w-3 h-3 rounded-full transition duration-1000 ease-in-out`}/>
             </div>
-            <div className="bg-white h-96 rounded-xl">
+            <div className="bg-white lg:h-96 rounded-xl">
                 <motion.img
                 initial={{ opacity: 0 }}
                 animate={{ opacity: opacity }}
@@ -53,7 +53,7 @@ const Slider = () => {
                 src={imageSrc}
                 alt="pictures"/>
             </div>
-            <div className="flex md:hidden mt-3 gap-1">
+            <div className="flex md:hidden mt-5 gap-1">
                 <button 
                 onClick={() => {setIsActive("p1")}}
                 className={`${isActive === "p1" ? "bg-[#5C5C5C]" : "bg-[#C2C2C2]"} w-3 h-3 rounded-full transition duration-1000 ease-in-out`}/>

@@ -11,6 +11,7 @@ const SectionMenu = () => {
 
             <div className="flex justify-between">
                 <motion.div
+                onViewportEnter={() => {setIsExpanded("b1")}}
                 onViewportLeave={() => {setIsExpanded("b0")}}
                 animate={{
                     height: isExpanded === "b1" ? "100px" : "",

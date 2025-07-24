@@ -190,7 +190,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-          className="font-jet text-black hover:underline mt-2 md:mt-1 cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105 w-fit">
+          className="font-jet text-black hover:underline mt-3 md:mt-1 cursor-pointer transition ease-in-out duration-100 hover:font-extrabold hover:scale-105 w-fit">
             SAIBA MAIS...
           </motion.div>
         </motion.div>
@@ -211,15 +211,15 @@ export default function Home() {
 
     {/* SECTION FIVE */}
       <motion.div className="relative max-w-screen overflow-x-clip">
-      <svg className="absolute -mt-16 md:-mt-40" width="1440" height="349" viewBox="0 0 1640 349" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <motion.path d="M-382 47.2894C668.5 -96.8037 891 525 1512.5 255" stroke="#BED0FF" strokeWidth="40" strokeLinecap="round"
+      <svg className="absolute -mt-12 md:-mt-10 lg:-mt-28 xl:-mt-48" width="1440" height="349" viewBox="0 0 1640 349" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.path d="M-382 47.2894C668.5 -96.8037 891 525 1512.5 255" stroke="#BED0FF" strokeWidth="60" strokeLinecap="round"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: inView ? 1 : 0 }}
         transition={transition}/>
       </svg>
     </motion.div>
 
-    <div ref= {services} className="absolute w-full h-auto right-0 -mt-10 opacity-100 animate-pulse z-10">
+    <div ref= {services} className="absolute w-full h-auto right-0 -mt-10 opacity-30 md:opacity-100 animate-pulse z-10">
       <motion.svg className="absolute right-0 2xl:right-40 mt-32 z-10" initial={{y: 0}} animate={{y: [0, -10, 0]}} transition={{repeat: Infinity, ease: "easeInOut", duration: 3, delay: 3.5}} width="467" height="519" viewBox="0 0 467 519" fill="none" xmlns="http://www.w3.org/2000/svg">
       <motion.path d="M303.449 8.10281L466.15 99.784L404.57 197.027" stroke="#ddb5ff" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
       <motion.path d="M167.759 176.11L41.8445 51" stroke="#ddb5ff" strokeLinejoin="round" initial={{ pathLength: 0, x: 0 }} animate={{ pathLength: inViewShape ? 1 : 0, x: -30 }} transition={transition3}/>
@@ -236,7 +236,7 @@ export default function Home() {
 
     <motion.div 
     onViewportEnter={() => {setInView(true)}}
-    className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5">
+    className="bg-white bg-gradient-to-b from-yellow-100/50 via-pink-100/50 to-purple-200  flex w-full py-5 pt-20 md:pt-8 lg:pt-6 xl:pt-2">
       <div className="w-[calc(100%-5px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-80px)] 2xl:w-[calc(100%-600px)] mx-auto p-6 md:p-10 lg:p-14 text-[#4d4d4d] z-20">
         
         <motion.div
@@ -297,7 +297,7 @@ export default function Home() {
           <motion.div className="flex flex-col" initial={{opacity: 0, y: -10}} whileInView={{opacity: 1, y: 0, transition: {duration: 2, delay: 2.8}}} viewport={{once: true}}>
             <div className="relative flex space-x-3 items-center mb-3 justify-center md:justify-normal">
               <SiMailboxdotorg size={18}/>
-              <span className="font-semibold">luciana.sato@procics.com</span>
+              <span className="font-semibold">procics@procics.com</span>
             </div>
             <div className="flex space-x-3 items-center justify-center md:justify-normal">
               <SiWhatsapp size={20}/>
@@ -325,7 +325,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-end font-jet">
           <span className="font-bold mb-2 text-lg">Entre em contato</span>
-          <span className="mb-1">luciana.sato@procics.com.br</span>
+          <span className="mb-1">procics@procics.com.br</span>
           <span className="mb-5">(11) 98319-9825</span>
         </div>
       </div>

@@ -35,11 +35,11 @@ export default function ContactForm() {
     return (
         <motion.div className="w-full md:w-2/5 z-30" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2}}} viewport={{once: true}}>
         <form className="flex flex-col space-y-4" onSubmit={handleSubmit(onSubmit)}>
-            <input className="p-3 px-4 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="Nome" {...register("nome", {required: true})}/>
+            <input className="p-3 px-4 rounded-lg placeholder-gray-400 placeholder:font-normal outline-none text-[#313D6A] font-bold" placeholder="Nome" {...register("nome", {required: true})}/>
             {errors.nome && <span className="text-red-300 mb-3">Insira seu nome.</span>}
-            <input className="p-3 px-4 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="E-mail" {...register("email", {required: true})}/>
+            <input className="p-3 px-4 rounded-lg placeholder-gray-400 outline-none text-[#313D6A]" placeholder="E-mail" {...register("email", {required: true})}/>
             {errors.nome && <span className="text-red-300 mb-3">Insira seu e-mail.</span>}
-            <textarea className="p-3 px-4 resize-none h-40 rounded-lg placeholder-gray-400 text-[#313D6A]" placeholder="Sua mensagem" {...register("mensagem", {required: true})}/>
+            <textarea className="p-3 px-4 resize-none h-40 rounded-lg placeholder-gray-400 outline-none text-[#313D6A]" placeholder="Sua mensagem" {...register("mensagem", {required: true})}/>
             {errors.nome && <span className="text-red-300 mb-5">Por favor, escreva sua mensagem.</span>}
             <OutlineButton/>
         </form>
