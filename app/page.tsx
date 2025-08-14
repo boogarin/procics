@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { SiInstagram, SiMailboxdotorg, SiWhatsapp, SiX } from '@icons-pack/react-simple-icons';
+import { SiInstagram, SiMailboxdotorg, SiWhatsapp } from '@icons-pack/react-simple-icons';
 import { motion, useSpring, useTime, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
@@ -14,6 +14,7 @@ import SectionMenu from "./components/SectionMenu";
 import Slider from "./components/Slider";
 import Service from "./components/Services";
 import { GlobeLock, LayoutDashboardIcon, Wrench } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const time = useTime();
@@ -127,9 +128,9 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row justify-between w-full lg:w-4/6">
           <div className="flex text-center lg:text-left flex-col space-y-2 w-full lg:w-2/5">
             <span className="font-semibold">NOS ENCONTRE</span>
-            <div className="flex space-x-3 justify-center lg:justify-normal">
+            <div className="flex space-x-3 items-center justify-center lg:justify-normal">
               <SiInstagram size={20}/>
-              <SiX size={20}/>
+              <FaLinkedin size={20}/>
             </div>
           </div>
           <div className="text-center lg:text-justify mt-8 lg:mt-0 lg:w-4/5">
@@ -247,7 +248,7 @@ export default function Home() {
           <span className="text-center md:text-left md:w-2/4 mb-10 tracking-wide">A Procics atua em todas as etapas do projeto, desde a Prototipação, Desenvolvimento e Homologação, até a Instalação e Suporte do produto entregue.</span>
         </motion.div>
 
-        <motion.div className="flex flex-col md:flex-row gap-5">
+        <motion.div className="grid grid-cols-3 md:flex-row gap-5">
           <motion.div
             className="flex-1"
             initial="hidden"
@@ -255,7 +256,7 @@ export default function Home() {
             variants={serviceVariants}
             custom={0}
           >
-            <Service title="Segurança da Informação" subtitle="Serviços de segurança, roteamento e autorização de transações..." Icon={GlobeLock} />
+            <Service title="Segurança da Informação" subtitle="Serviços de segurança, roteamento e autorização de transações." Icon={GlobeLock} />
           </motion.div>
           <motion.div
             className="flex-1"
@@ -274,6 +275,24 @@ export default function Home() {
             custom={2}
           >
             <Service title="Suporte e Manutenção" subtitle="Com a Procics, você tem um time de TI exclusivo para o seu negócio..." Icon={Wrench} />
+          </motion.div>
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            animate="visible"
+            variants={serviceVariants}
+            custom={2}
+          >
+            <Service title="Desenvolvimento de Apps e Sites" subtitle="Aplicativos voltados para o público em geral ou interno da empresa..." Icon={Wrench} />
+          </motion.div>
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            animate="visible"
+            variants={serviceVariants}
+            custom={2}
+          >
+            <Service title="Gestão de Tráfegos" subtitle="Aumentar o alcance e obter resultados efetivos." Icon={Wrench} />
           </motion.div>
         </motion.div>
        

@@ -1,5 +1,5 @@
-import { motion, useSpring, useTransform } from "motion/react";
-import React, { MouseEventHandler } from "react";
+import { animate, motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import React, { MouseEventHandler, useEffect } from "react";
 import Image from "next/image";
 
 const cardScale = 1.02;
@@ -18,6 +18,17 @@ const Card = () => {
 
     const sheenX = useTransform(() => mouseX.get() - sheenSize / 2);
     const sheenY = useTransform(() => mouseY.get() - sheenSize / 2);
+
+    const count = useMotionValue(0)
+    const rounded = useTransform(count, latest => Math.floor(latest))
+
+    useEffect(() => {
+        const controls = animate(count, 10, {
+            duration: 2,
+            ease: "easeOut"
+        })
+        return controls.stop
+    },[count])
 
     const getMousePosition = (e: React.MouseEvent<Element, MouseEvent>) => {
         const { width, height, left, top } =
@@ -89,7 +100,11 @@ const Card = () => {
                         </div>
                         <div className="flex max-w-[600px] justify-between mt-8">
                             <div className="flex flex-col w-1/2 xl:w-2/2">
-                                <span className="font-extrabold text-xl z-30">+25 mil</span>
+                                <div className="font-extrabold text-xl z-30 gap-1 flex">
+                                    <span>+</span>
+                                    <motion.span>{rounded}</motion.span>
+                                    <span>mil</span>
+                                </div>
                                 <span className="z-30">Usuários ativos</span>
                             </div>
                             <div className="flex flex-col w-1/2 xl:w-auto">

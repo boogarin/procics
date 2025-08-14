@@ -1,5 +1,5 @@
-import { motion, useSpring, useTransform } from "motion/react";
-import React, { MouseEventHandler } from "react";
+import { animate, motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import React, { MouseEventHandler, useEffect } from "react";
 import Image from "next/image";
 
 const cardScale = 1.02;
@@ -17,6 +17,17 @@ const Card2 = () => {
 
     const sheenX = useTransform(() => mouseX.get() - sheenSize / 2);
     const sheenY = useTransform(() => mouseY.get() - sheenSize / 2);
+
+    const count = useMotionValue(0)
+    const rounded = useTransform(count, latest => Math.floor(latest))
+
+    useEffect(() => {
+        const controls = animate(count, 200, {
+            duration: 2,
+            ease: "easeOut"
+        })
+        return controls.stop
+    },[count])
 
     const getMousePosition = (e: React.MouseEvent<Element, MouseEvent>) => {
         const { width, height, left, top } =
@@ -65,10 +76,10 @@ const Card2 = () => {
             rotateY,
             scale
         }}
-        className={`w-full bg-gradient-to-b from-[#BA69F6] to-[#6480FE] text-white p-6 lg:p-10 rounded-xl overflow-hidden group`}>
-            <motion.div className="absolute z-10 opacity-0 rounded-full blur-md group-hover:opacity-15 transition-opacity duration-200"
+        className={`w-full bg-gradient-to-b from-[#e9a348] to-[#ffdf78] text-black p-6 lg:p-10 rounded-xl overflow-hidden group`}>
+            <motion.div className="absolute z-10 opacity-0 rounded-full blur-2xl group-hover:opacity-15 transition-opacity duration-200"
             style={{
-                background: "radial-gradient(white, #BA69F6 80%)",
+                background: "radial-gradient(white, #fff5db 80%)",
                 left: sheenX,
                 top: sheenY,
                 height: sheenSize,
@@ -76,23 +87,26 @@ const Card2 = () => {
             }}/>
             <div className="flex justify-between font-semibold">
                 <span>2025</span>
-                <span>Mobile (Android & iOS)</span>   
+                <span>Web & Mobile (Android & iOS)</span>   
             </div>
             <div className="h-[1px] bg-black opacity-20 rounded-full mt-2 mb-2 z-30"/>
             <div className="flex flex-col justify-between p-5 lg:py-8 xl:p-10">
                 <div className="flex flex-row">
                     <div className="flex justify-center w-full flex-col">
                         <div className="flex w-full items-center md:items-start flex-col">
-                            <Image className="mb-5 z-30" draggable={false} src={"/imatch-logo.png"} alt="" height={50} width={200}/>
-                            <span className="w-full text-center md:text-left xl:w-3/4 z-30">Participe das mais diversas comunidades para conhecer novas pessoas.</span>
+                            <Image className="mb-5 z-30" draggable={false} src={"/kastor-logo.png"} alt="" height={50} width={200}/>
+                            <span className="w-full text-center md:text-left xl:w-3/4 z-30">Comece a receber pedidos e ganhe dinheiro fazendo o que você sabe!</span>
                         </div>
                         <div className="flex max-w-[600px] justify-between mt-8">
                             <div className="flex flex-col w-1/2 xl:w-2/2">
-                                <span className="font-extrabold text-xl z-30">+9 mil</span>
+                                <div className="flex items-center gap-1 font-extrabold text-xl z-30">
+                                    <span>+</span>
+                                    <motion.span>{rounded}</motion.span>
+                                </div>
                                 <span className="z-30">Usuários ativos</span>
                             </div>
                             <div className="flex flex-col w-1/2 xl:w-auto">
-                                <span className="font-extrabold text-xl z-30">89%</span>
+                                <span className="font-extrabold text-xl z-30">100%</span>
                                 <span className="z-30 truncate">Aprovação de usuários</span>
                             </div>
                         </div>
@@ -100,10 +114,10 @@ const Card2 = () => {
                         <motion.div initial={{opacity: 0, y: 60}} whileInView={{ opacity: 0.85, y: 0, scale: 1, transition: {delay: 0.5, duration: 0.5}}} whileHover={{opacity: 1}} 
                         className="max-w-[600px] p-3 px-5 mt-10 bg-[#FFFFFF] rounded-3xl hover:cursor-pointer text-black z-30">
                             <div className="flex space-x-4 items-center">
-                            <Image className="h-10 w-10 rounded-xl" draggable={false} src={"/imatch-icon.png"} alt="" height={50} width={200}/>
+                            <Image className="h-10 w-10 rounded-xl" draggable={false} src={"/kastor-icon.png"} alt="" height={50} width={200}/>
                             <div className="truncate w-4/5 flex flex-col">
-                                <span className="font-semibold">iMatch</span>
-                                <span className="truncate">Você recebeu uma mensagem de Ana!</span>
+                                <span className="font-semibold">Kastor</span>
+                                <span className="truncate">Você recebeu uma solicitação de serviço!</span>
                             </div>
                             </div>
                         </motion.div>

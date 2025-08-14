@@ -50,7 +50,7 @@ const SectionMenu = () => {
                 ease: "easeInOut",
             }}
             className="-mt-16 mb-5 text-[#4d4d4d]">
-                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industrys standard dummy  text ever since...
+                Transformamos ideias em modelos visuais, permitindo que o cliente veja e teste o conceito antes da produção final.
             </motion.div> : <></>
             }
 
@@ -95,7 +95,7 @@ const SectionMenu = () => {
                 ease: "easeInOut",
             }}
             className="-mt-16 mb-5 text-[#4d4d4d]">
-                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industrys standard dummy  text ever since...
+                Exploramos soluções únicas e inovadoras para criar projetos alinhados à identidade e objetivos de cada cliente.
             </motion.div> : <></>
             }
 
@@ -141,7 +141,7 @@ const SectionMenu = () => {
                 ease: "easeInOut",
             }}
             className="-mt-16 mb-5 text-[#4d4d4d]">
-                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industrys standard dummy  text ever since...
+                Desenvolvemos estratégias para impulsionar a visibilidade e o alcance do seu projeto no mercado.
             </motion.div> : <></>
             }
 
