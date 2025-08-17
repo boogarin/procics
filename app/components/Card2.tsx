@@ -103,7 +103,7 @@ const Card2 = () => {
                                     <span>+</span>
                                     <motion.span>{rounded}</motion.span>
                                 </div>
-                                <span className="z-30">Usuários ativos</span>
+                                <span className="z-30">Serviços cadastrados</span>
                             </div>
                             <div className="flex flex-col w-1/2 xl:w-auto">
                                 <span className="font-extrabold text-xl z-30">100%</span>
