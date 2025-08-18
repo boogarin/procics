@@ -125,7 +125,7 @@ export default function Home() {
         <TypingTextRotator/>
       </div>
       
-      <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 5, delay: 1}}} viewport={{once: true}} className="absolute mt-20 md:mt-0 lg:top-0 z-0 animate-pulse">
+      <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 5, delay: 1}}} viewport={{once: true}} className="md:absolute mt-20 md:mt-0 lg:top-0 z-0 hidden">
       <Image draggable="false" src={"/globe.png"} alt='Logo' width={1000} height={10}/>
       </motion.div>
     </motion.div>
