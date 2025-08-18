@@ -369,7 +369,7 @@ export default function Home() {
           </ul>
         </div> */}
 
-        <div className="flex flex-col items-end font-jet">
+        <div className="flex flex-col items-end font-jet mt-10 md:mt-0">
           <span className="font-bold mb-2 text-lg">Entre em contato</span>
           <span className="mb-1">procics@procics.com</span>
           <span className="mb-5">(11) 98319-9825</span>
