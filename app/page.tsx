@@ -118,7 +118,7 @@ export default function Home() {
           </div>
           <div className="text-center lg:text-right flex flex-col">
             <span className="font-jet font-extrabold text-left text-3xl sm:text-5xl md:text-6xl mt-1">SITE OU APLICATIVO</span>
-            <span className="font-jet font-semibold text-left text-transparent bg-gradient-to-r from-yellow-200 via-pink-200 to-purple-200 bg-clip-text mt-2 text-xs sm:text-sm lg:ml-32">finalizamos seu projeto em até 2 meses*</span>
+            <span className="font-jet font-semibold text-left text-transparent bg-gradient-to-r from-yellow-200 via-pink-200 to-purple-200 bg-clip-text mt-2 text-xs sm:text-sm lg:ml-80">finalizamos seu projeto em até 2 meses*</span>
           </div>
         </div>
 
@@ -174,9 +174,11 @@ export default function Home() {
     </div>
     <motion.div 
     layout
-    className="flex flex-col md:flex-row gap-5 mb-3 lg:mb-4">
-          <Card/>
-          <Card2/>
+    className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-3 lg:mb-4">
+          <Card/>      
+          <Link href="http://kastor.com.br" target="_blank">
+            <Card2/>
+          </Link>
     </motion.div>
     </motion.div>
 
@@ -312,7 +314,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={serviceVariants}
-            custom={4}
+            custom={5}
           >
             <Service title="Migração para Novas Tecnologias" subtitle="Migração de sistema legado para uma tecnologia da atualidade..." Icon={CircleFadingArrowUp} />
           </motion.div>

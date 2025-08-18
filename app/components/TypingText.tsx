@@ -25,7 +25,7 @@ export function TypingTextRotator() {
       <AnimatePresence mode="wait">
         <motion.h2
           key={index}
-          className="text-xl font-bold tracking-tighter md:leading-[4rem] z-20 text-transparent bg-gradient-to-r from-yellow-100 via-pink-200 to-purple-100 bg-clip-text"
+          className="text-xl font-bold tracking-tighter z-20 mt-4 text-transparent bg-gradient-to-r from-yellow-100 via-pink-200 to-purple-100 bg-clip-text"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}

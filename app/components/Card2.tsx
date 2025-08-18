@@ -95,7 +95,7 @@ const Card2 = () => {
                     <div className="flex justify-center w-full flex-col">
                         <div className="flex w-full items-center md:items-start flex-col">
                             <Image className="mb-5 z-30" draggable={false} src={"/kastor-logo.png"} alt="" height={50} width={200}/>
-                            <span className="w-full text-center md:text-left xl:w-3/4 z-30">Comece a receber pedidos e ganhe dinheiro fazendo o que você sabe!</span>
+                            <span className="w-full text-center md:text-left xl:w-3/4 z-30">Crie serviços, comece a receber pedidos e ganhe dinheiro fazendo o que você sabe!</span>
                         </div>
                         <div className="flex max-w-[600px] justify-between mt-8">
                             <div className="flex flex-col w-1/2 xl:w-2/2">
