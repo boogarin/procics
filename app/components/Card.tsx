@@ -113,7 +113,7 @@ const Card = () => {
                             </div>
                         </div>
 
-                        <motion.div initial={{opacity: 0, y: 60}} whileInView={{ opacity: 0.85, y: 0, scale: 1, transition: {delay: 0.1, duration: 0.5}}} whileHover={{opacity: 1}} 
+                        <motion.div initial={{opacity: 0, y: 60}} viewport={{once: true}} whileInView={{ opacity: 0.85, y: 0, scale: 1, transition: {delay: 0.1, duration: 0.5}}} whileHover={{opacity: 1}} 
                         className="max-w-[600px] p-3 px-5 mt-10 bg-[#FFFFFF] rounded-3xl hover:cursor-pointer z-30">
                             <div className="flex space-x-4 items-center">
                             <Image className="h-10 w-10 rounded-xl" draggable={false} src={"/agendex-icon.png"} alt="" height={50} width={200}/>
