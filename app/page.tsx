@@ -138,7 +138,7 @@ export default function Home() {
           <div className="flex text-center lg:text-left flex-col space-y-2 w-full lg:w-2/5">
             <span className="font-semibold">NOS ENCONTRE</span>
             <div className="flex space-x-3 items-center justify-center lg:justify-normal">
-              <SiInstagram size={20}/>
+              <SiInstagram className="opacity-50" size={20}/>
               <Link target="_blank" href="https://www.linkedin.com/company/procicssolucoesti/">
                 <FaLinkedin size={20}/>
               </Link>

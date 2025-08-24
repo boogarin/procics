@@ -30,7 +30,19 @@ export default function ContactForm() {
         handleSubmit,
         formState: {errors},
     } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+        alert("Mensagem enviada com sucesso!");
+    } else {
+        alert("Erro ao enviar mensagem.");
+    }
+    };
 
     return (
         <motion.div className="w-full md:w-2/5 z-30" initial={{opacity: 0}} whileInView={{opacity: 1, transition: {duration: 2}}} viewport={{once: true}}>
