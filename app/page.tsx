@@ -139,7 +139,7 @@ export default function Home() {
             <span className="font-semibold">NOS ENCONTRE</span>
             <div className="flex space-x-3 items-center justify-center lg:justify-normal">
               <Link target="_blank" href="https://www.instagram.com/procicsti">
-                <SiInstagram className="opacity-50" size={20}/>
+                <SiInstagram size={20}/>
               </Link>
               <Link target="_blank" href="https://www.linkedin.com/company/procicssolucoesti/">
                 <FaLinkedin size={20}/>
